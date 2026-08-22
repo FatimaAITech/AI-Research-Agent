@@ -1,9 +1,13 @@
 openai
 langchain
 langchain-openai
+langchain-groq
 langchain-community
 python-dotenv
 tavily-python
 beautifulsoup4
 requests
 pydantic
+sentence-transformers
+fastapi
+uvicorn
