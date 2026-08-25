@@ -1,0 +1,394 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #f6f7fb;
+  color: #171923;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* ---------------- Header ---------------- */
+
+.header {
+  height: 76px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #e8eaf0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #171923;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: #737784;
+  font-size: 12px;
+}
+
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #e3e6ec;
+  border-radius: 999px;
+  background: #fafbfc;
+  color: #555b68;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22a06b;
+}
+
+/* ---------------- Dashboard ---------------- */
+
+.dashboard {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  padding: 78px 0 70px;
+}
+
+.hero-section {
+  max-width: 760px;
+  margin-bottom: 42px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #686f7c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.hero-section h2 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -2.8px;
+  font-weight: 800;
+}
+
+.hero-section h2 span {
+  color: #737784;
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: #686e7b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ---------------- Cards ---------------- */
+
+.research-card,
+.status-card,
+.report-card {
+  margin-top: 20px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e4e7ed;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(25, 30, 45, 0.04);
+}
+
+.card-header h3,
+.status-header h3,
+.report-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-header p,
+.status-header p {
+  margin: 6px 0 0;
+  color: #777d89;
+  font-size: 13px;
+}
+
+/* ---------------- Research Input ---------------- */
+
+.input-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid #dfe2e8;
+  border-radius: 12px;
+  outline: none;
+  color: #171923;
+  background: #fbfcfd;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrapper input:focus {
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(100, 110, 125, 0.1);
+}
+
+.input-wrapper button {
+  height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 12px;
+  background: #171923;
+  color: #ffffff;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.input-wrapper button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* ---------------- Status ---------------- */
+
+.status-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.ready-badge {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #eef8f3;
+  color: #237a53;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #f8f9fb;
+}
+
+.status-icon,
+.report-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e3e6eb;
+  font-weight: 800;
+}
+
+.status-placeholder strong {
+  font-size: 14px;
+}
+
+.status-placeholder p {
+  margin: 4px 0 0;
+  color: #777d89;
+  font-size: 13px;
+}
+
+/* ---------------- Report ---------------- */
+
+.report-header {
+  margin-bottom: 22px;
+}
+
+.report-placeholder {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border: 1px dashed #d8dce4;
+  border-radius: 16px;
+  text-align: center;
+  background: #fafbfc;
+}
+
+.report-icon {
+  margin-bottom: 16px;
+}
+
+.report-placeholder h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.report-placeholder p {
+  max-width: 520px;
+  margin: 9px 0 0;
+  color: #777d89;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ---------------- Footer ---------------- */
+
+.footer {
+  padding: 24px 6%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e8eaf0;
+  background: #ffffff;
+  color: #777d89;
+  font-size: 12px;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 700;
+  color: #4d5360;
+}
+
+.footer span {
+  color: #8a8f99;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 700px) {
+  .header {
+    height: auto;
+    padding: 18px 5%;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .dashboard {
+    width: 90%;
+    padding: 55px 0;
+  }
+
+  .hero-section h2 {
+    letter-spacing: -1.8px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+  }
+
+  .input-wrapper button {
+    width: 100%;
+  }
+
+  .status-header {
+    flex-direction: column;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+.error-message {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid #f0caca;
+  border-radius: 12px;
+  background: #fff6f6;
+  color: #a33a3a;
+  font-size: 13px;
+}
+
+.input-wrapper button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.report-result {
+  width: 100%;
+  text-align: left;
+}
+
+.report-result > p {
+  margin: 0 0 20px;
+  color: #555b68;
+  font-size: 14px;
+}
+
+.report-content {
+  width: 100%;
+  padding: 22px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e3e6eb;
+  color: #333743;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  text-align: left;
+}
