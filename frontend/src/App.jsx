@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { researchTopic } from './services/researchApi'
 import './App.css'
 
@@ -128,7 +129,7 @@ function App() {
 
           <div className="status-placeholder">
   <div className="status-icon">
-    {loading ? '...' : result ? '✓' : '✓'}
+  {loading ? '...' : '✓'}
   </div>
 
   <div>
@@ -202,7 +203,9 @@ function App() {
       </p>
 
       <div className="report-content">
-        {result.report}
+        <ReactMarkdown>
+          {result.report}
+        </ReactMarkdown>
       </div>
     </div>
   )}
