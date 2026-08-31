@@ -7,7 +7,12 @@ python-dotenv
 tavily-python
 beautifulsoup4
 requests
-pydantic
+
+pydantic==2.11.7
+pydantic-settings==2.10.1
+typing-extensions==4.14.1
+typing-inspection==0.4.1
+
 sentence-transformers
-fastapi
-uvicorn
+fastapi==0.116.1
+uvicorn==0.35.0

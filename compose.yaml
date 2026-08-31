@@ -1,0 +1,25 @@
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-research-agent-backend:v1.0
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000
+    image: ai-research-agent-frontend:v1.0
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
