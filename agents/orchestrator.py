@@ -48,7 +48,7 @@ class ResearchOrchestrator:
         self.writer = WriterAgent()
         self.reviewer = ReviewerAgent(llm)
 
-        
+
 
         self.brain = AgentBrain()
         self.reflector = ReflectionAgent()
@@ -90,7 +90,7 @@ class ResearchOrchestrator:
         self.trace = ExecutionTrace()
 
         self.autonomous = AutonomousOrchestrator(self)
-        
+
         # print("\n========== REGISTERED TOOLS ==========\n")
 
         # for tool in self.registry.tool_info():
@@ -108,7 +108,7 @@ class ResearchOrchestrator:
 #              "SELF_CORRECT": self.self_corrector.run
 # }
 
-        
+
 # -----------------------------
 # Tool Registry
 # -----------------------------
@@ -137,7 +137,7 @@ class ResearchOrchestrator:
         self.registry.register(
             MemoryTool()
         )
- 
+
 
 
 # -----------------------------
@@ -146,7 +146,7 @@ class ResearchOrchestrator:
 
         # self.dispatcher = ToolDispatcher(
         #       self.registry
-        #     )     
+        #     )
     def execute_action(self, action, state):
 
         action = action.upper()
@@ -214,9 +214,9 @@ class ResearchOrchestrator:
 
         except Exception as e:
 
-            self.trace.end(
+            self.trace.fail(
                  trace,
-                 success=False
+                 str(e)
             )
 
             print(f"\n❌ {agent.name} failed")
@@ -224,7 +224,7 @@ class ResearchOrchestrator:
             print(e)
 
             raise
-     
+
     def run(self, topic):
 
         print("\n========== ORCHESTRATOR STARTED ==========\n")
@@ -411,9 +411,9 @@ class ResearchOrchestrator:
 
     #            self.state = state
 
-                
 
-            
+
+
     # # Direct reuse from semantic memory
     #            state.final_report = best_match["report"]
 
@@ -421,7 +421,7 @@ class ResearchOrchestrator:
     #            print("🧠 Long-Term Memory updated.")
 
     #            return state
-                       
+
         # state = AgentState(topic)
     # -----------------------------
     # Planner
@@ -452,7 +452,7 @@ class ResearchOrchestrator:
            {state.report}
            """
            )
-     
+
 
            print(brain_output)
 
@@ -464,7 +464,7 @@ class ResearchOrchestrator:
            action = decision["action"]
 
            if action == "FINISH":
-  
+
              state.finished = True
              break
 
@@ -498,7 +498,7 @@ class ResearchOrchestrator:
 
 # Prevent infinite loop
            state.iteration += 1
- 
+
     # -----------------------------
     # Save Memory
     # -----------------------------
@@ -537,6 +537,8 @@ class ResearchOrchestrator:
 
         MemoryAnalytics.report()
 
+        if state.report and not state.final_report:
+           state.final_report = state.report
 
         return state
-    
+
