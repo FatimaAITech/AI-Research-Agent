@@ -100,3 +100,8 @@ Desktop.ini
 # -------------------------
 *.part
 *.crdownload
+# Generated research data - keep out of public source control
+reports/*
+!reports/.gitkeep
+memory/history.json
+memory/semantic_memory.json
